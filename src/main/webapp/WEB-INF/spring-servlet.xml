@@ -9,4 +9,24 @@
 
     <context:component-scan base-package="com"/>
 
+    <bean id="route" class="com.Route">
+        <constructor-arg type="long" value="1"/>
+        <constructor-arg type="java.util.List" ref="step" />
+
+    </bean>
+
+    <bean id="service" class="com.Service">
+        <constructor-arg type="long" value="3"/>
+        <constructor-arg name="name" value="serv"/>
+        <constructor-arg type="java.util.List" value="null"/>
+    </bean>
+
+    <bean id="step" class="com.Step">
+        <constructor-arg type="long" value="2"/>
+        <constructor-arg type="com.Service" ref="service"/>
+        <constructor-arg type="com.Service" ref="service"/>
+        <constructor-arg type="java.util.Map" value="null"/>
+        <constructor-arg type="java.util.Map" value="null"/>
+    </bean>
+
 </beans>
