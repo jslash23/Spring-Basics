@@ -14,13 +14,6 @@ public class Step {
     private Map<String, String> paramsServiceFrom;
     private Map<String, String> paramsServiceTo;
 
-//    public Step(Long id, Service serviceFrom, Service serviceTo, Map<String, String> paramsServiceFrom, Map<String, String> paramsServiceTo) {
-//        this.id = id;
-//        this.serviceFrom = serviceFrom;
-//        this.serviceTo = serviceTo;
-//        this.paramsServiceFrom = paramsServiceFrom;
-//        this.paramsServiceTo = paramsServiceTo;
-//    }
 
     public Long getId() {
         return id;

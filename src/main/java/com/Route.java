@@ -8,10 +8,7 @@ public class Route {
     private Long id;
     private List<Step> steps;
 
-//    public Route(Long id, List<Step> steps) {
-////        this.id = id;
-////        this.steps = steps;
-//    }
+
 
     public Long getId() {
         return id;

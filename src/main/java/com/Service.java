@@ -11,11 +11,7 @@ public class Service {
     private String name;
     private List<String> peramsToCall;
 
-//    public Service(Long id, String name, List<String> peramsToCall) {
-//        this.id = id;
-//        this.name = name;
-//        this.peramsToCall = peramsToCall;
-//    }
+
 
     public Long getId() {
         return id;
