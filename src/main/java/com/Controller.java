@@ -20,9 +20,11 @@ public class Controller {
     @Autowired
     private Step step;
 
+
+
     @RequestMapping(method = RequestMethod.GET, value = "/get", produces = "text/plain")
     public @ResponseBody String callByBean() {
-       /* route.setId(1L);
+        route.setId(1L);
         route.setSteps(null);
 
         service.setId(2L);
@@ -31,7 +33,7 @@ public class Controller {
 
         step.setId(3L);
         step.setServiceFrom(service);
-        step.setServiceTo(service);*/
+        step.setServiceTo(service);
 
 
         route.getId();
@@ -46,7 +48,6 @@ public class Controller {
         step.getParamsServiceTo();
         step.getServiceFrom();
         step.getServiceTo();
-
         return "All getters was called";
     }
 }
