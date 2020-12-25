@@ -4,41 +4,39 @@ import com.lesson3.DI_CRUD.repository.DAO_interface;
 import com.lesson3.DI_CRUD.model.File;
 import com.lesson3.DI_CRUD.repository.FileDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class FileService {
 
-    @Autowired
-    private DAO_interface dao_interface;
+    private final DAO_interface dao_interface;
 
-    public FileService(DAO_interface dao_interface) {
-        this.dao_interface = dao_interface;
+    @Autowired
+    public FileService(@Qualifier("fileDao") DAO_interface dao_interface1) {
+        this.dao_interface = dao_interface1;
     }
 
 
-    @Autowired
-    private FileDAO fileDAO;
+    public Object servRead(String params){
+        return dao_interface.read(params);
 
-    @Autowired
-    public FileService(FileDAO fileDAO) {
-        this.fileDAO = fileDAO;
     }
 
 
     public void servSave(File file)  {
 
         // TODO: 20.12.2020  
-       fileDAO.save(file);//
+       dao_interface.save(file);//
 
     }
 
     public void servUpdate(long id) {
 
-      fileDAO.update(id);//
+      dao_interface.update(id);//
     }
 
     public void servDelete(long idn)  {
 
-        fileDAO.delete(idn);
+        dao_interface.delete(idn);
     }
 
 }

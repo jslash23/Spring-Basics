@@ -2,7 +2,7 @@ package com.lesson3.DI_CRUD.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "FILE")
+@Table(name = "FILEN")
 public class File {
     private long id;
     private String name;
@@ -38,7 +38,7 @@ public class File {
         this.id = id;
     }
 
-    @Column(name = "NAME")
+    @Column(name = "NAME_FILE")
 
     public String getName() {
         return name;
@@ -48,7 +48,7 @@ public class File {
         this.name = name;
     }
 
-    @Column(name = "FORMAT")
+    @Column(name = "FORMAT_FILE")
 
     public String getFormat() {
         return format;
@@ -58,7 +58,7 @@ public class File {
         this.format = format;
     }
 
-    @Column(name = "SIZE")
+    @Column(name = "SIZE_FILE")
 
     public long getSize() {
         return size;

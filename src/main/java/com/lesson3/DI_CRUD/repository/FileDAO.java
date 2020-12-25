@@ -7,21 +7,34 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
-
 import java.io.IOException;
 import java.util.List;
 
 
 public class FileDAO implements DAO_interface {
-
     private static SessionFactory  sessionFactory;
 
+    @Override
+    public File read(Object object) {
+        File file;
+        String data = object.toString();
+        Long id = Long.parseLong(data);
+        try (Session session = createSessionFactory().openSession()) {
+            file =  session.get(File.class, id);
+            //action
+            //тут  сессия закроется автоматичесски
+            //session.close();
+            return file;
+        }
+    }
 
 
     @Override
     public void save(Object object) {
         File file = (File) object;
+
         file.setFormat("txt");
+
         try (Session session = createSessionFactory().openSession()) {
 
             Transaction transaction = session.getTransaction();

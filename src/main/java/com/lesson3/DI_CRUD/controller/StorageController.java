@@ -2,7 +2,6 @@ package com.lesson3.DI_CRUD.controller;
 
 import com.lesson3.DI_CRUD.model.File;
 import com.lesson3.DI_CRUD.model.Storage;
-import com.lesson3.DI_CRUD.repository.DAO_interface;
 import com.lesson3.DI_CRUD.service.FileService;
 import com.lesson3.DI_CRUD.service.StorageService;
 import org.hibernate.HibernateException;
@@ -14,65 +13,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class Controller {
+public class StorageController {
 
     @Autowired
-   private StorageService storageService;
+    private final StorageService storageService;
 
     @Autowired
-    public Controller(StorageService storageService) {
+    //тут мы указали что бы Спринг нашел бин  класса StorageService и этот бин был
+    //внедрен в класс Controller
+    public StorageController(StorageService storageService) {
         this.storageService = storageService;
     }
 
-    @Autowired
-    private FileService fileService;
-@Autowired
-    public Controller(FileService fileService) {
-        this.fileService = fileService;
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    protected void doPostFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        File file = new File();
-        //считываем стрим приходящий из Постмана (метод POST)
-        //мапим данные Гибернейтом
-        //добавляем ай ди и даты
-        //сохраняем в БД
-
-        file.setName(req.getParameter("name"));
-        file.setFormat(req.getParameter("format"));
-        fileService.servSave(file);
-        resp.getWriter().println(file);
-
+   @RequestMapping(method = RequestMethod.GET, value = "/readStorage")
+    protected void doGetStorage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        // метод должен возвращать в окно браузера введенное значение
+        String params = req.getParameter("id");
+        resp.getWriter().println(storageService.servRead(params));
     }
 
 
-    //делаем запрос req.getParameter("fileName") вызываем параметр  "fileName"
-    // и по имени которое получили делаем обновление  объекта из БД
-    @RequestMapping(method = RequestMethod.PUT)
-    protected void doPutFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
-        long idServ = Long.parseLong(req.getParameter("id"));
-        fileService.servUpdate(idServ);
-        resp.getWriter().println(idServ);
-    }
-
-    //return "POST OK";
-
-
-    @RequestMapping(method = RequestMethod.DELETE)
-    protected void doDeleteFile(HttpServletRequest req, HttpServletResponse resp) throws HibernateException {
-
-        long idServ = Long.parseLong(req.getParameter("id"));
-        fileService.servDelete(idServ);
-
-        //делаем запрос req.getParameter("itemId") вызываем параметр  "itemId"
-        // и по айдишнику который получили делаем удаление объекта из БД
-    }
-
-
-
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST, value = "/saveStorage")
     protected void doPostStorage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Storage storage = new Storage();
         //считываем стрим приходящий из Постмана (метод POST)
@@ -87,7 +48,7 @@ public class Controller {
 
     //делаем запрос req.getParameter("fileName") вызываем параметр  "fileName"
     // и по имени которое получили делаем обновление  объекта из БД
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT, value = "/updateStorage")
     protected void doPutStorage(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         long idServ = Long.parseLong(req.getParameter("id"));
@@ -98,7 +59,7 @@ public class Controller {
     //return "POST OK";
 
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(method = RequestMethod.DELETE, value = "/deleteStorage")
     protected void doDeleteStorage(HttpServletRequest req, HttpServletResponse resp) throws HibernateException {
 
         long idServ = Long.parseLong(req.getParameter("id"));

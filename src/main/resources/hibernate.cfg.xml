@@ -20,6 +20,7 @@
 
          <!--<<Подключаем маппинг классов>>-->
         <mapping class="com.lesson3.DI_CRUD.model.File"/>
+        <mapping class="com.lesson3.DI_CRUD.model.Storage"/>
 
 </session-factory>
 

@@ -7,13 +7,27 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
-
 import java.io.IOException;
 import java.util.List;
 
 public class StorageDAO implements DAO_interface {
 
     private static SessionFactory sessionFactory;
+
+
+    @Override
+    public Storage read(Object object) {
+       Storage storage;
+        String data = object.toString();
+        Long id = Long.parseLong(data);
+        try (Session session = createSessionFactory().openSession()) {
+            storage =  session.get(Storage.class, id);
+            //action
+            //тут  сессия закроется автоматичесски
+            //session.close();
+            return storage;
+        }
+    }
 
     @Override
     public void save(Object object) throws NumberFormatException {

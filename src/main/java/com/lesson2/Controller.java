@@ -1,16 +1,14 @@
-package com;
+package com.lesson2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-import java.util.Map;
 @org.springframework.stereotype.Controller
 
 public class Controller {
-
+/*
     @Autowired
     private Route route;
 
@@ -49,5 +47,5 @@ public class Controller {
         step.getServiceFrom();
         step.getServiceTo();
         return "All getters was called";
-    }
+    }*/
 }
