@@ -1,4 +1,4 @@
-CREATE TABLE FileN (
+CREATE TABLE FILEN (
 id INT NOT NULL,
 CONSTRAINT file_pk PRIMARY KEY(id),
 storage_fk INT,

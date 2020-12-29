@@ -1,4 +1,4 @@
-CREATE TABLE Storage (
+CREATE TABLE STORAGE (
 id INT,
 CONSTRAINT storage_pk PRIMARY KEY(id),
 formatsSupported NVARCHAR2(10) NOT NULL,
