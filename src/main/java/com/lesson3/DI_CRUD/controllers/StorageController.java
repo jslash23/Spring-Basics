@@ -1,18 +1,17 @@
-package com.lesson3.DI_CRUD.controller;
-
-import com.lesson3.DI_CRUD.model.File;
-import com.lesson3.DI_CRUD.model.Storage;
-import com.lesson3.DI_CRUD.service.FileService;
+package com.lesson3.DI_CRUD.controllers;
+import com.lesson3.DI_CRUD.models.Storage;
 import com.lesson3.DI_CRUD.service.StorageService;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//@Controller
+@RequestMapping("/test")
 public class StorageController {
 
     @Autowired
@@ -41,7 +40,9 @@ public class StorageController {
         //добавляем ай ди и даты
         //сохраняем в БД
 
-        storage.setStorageCountry(req.getParameter("StorageCountry"));
+        storage.setStorageCountry(req.getParameter("storage_country"));
+        //storage.setFormatSupported(req.getParameter("formatSupported"));
+        storageService.servSave(storage);
         resp.getWriter().println(storage);
     }
 

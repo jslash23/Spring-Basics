@@ -19,8 +19,8 @@
 
 
          <!--<<Подключаем маппинг классов>>-->
-        <mapping class="com.lesson3.DI_CRUD.model.File"/>
-        <mapping class="com.lesson3.DI_CRUD.model.Storage"/>
+        <mapping class="com.lesson3.DI_CRUD.models.File"/>
+        <mapping class="com.lesson3.DI_CRUD.models.Storage"/>
 
 </session-factory>
 

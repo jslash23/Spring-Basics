@@ -1,8 +1,6 @@
 package com.lesson3.DI_CRUD.service;
-
-import com.lesson3.DI_CRUD.repository.DAO_interface;
-import com.lesson3.DI_CRUD.model.File;
-import com.lesson3.DI_CRUD.repository.FileDAO;
+import com.lesson3.DI_CRUD.dao.DAO_interface;
+import com.lesson3.DI_CRUD.models.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 

@@ -1,6 +1,6 @@
-package com.lesson3.DI_CRUD.repository;
+package com.lesson3.DI_CRUD.dao;
 
-import com.lesson3.DI_CRUD.model.Storage;
+import com.lesson3.DI_CRUD.models.Storage;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -74,16 +74,14 @@ public class StorageDAO implements DAO_interface {
     }
 
     @Override
-    public void update(Object object) throws HibernateException {
-        Storage storageObj = new Storage();
+    public void update(long id) throws HibernateException {
         try (Session session = createSessionFactory().openSession()) {
 
             Transaction transaction = session.getTransaction();
             transaction.begin();
-// File findItem = (File) findById(fileObj.getId());
-            Storage findStorage = (Storage) findById(storageObj.getId());
+            Storage findStorage = (Storage) findById(id);
 
-            findStorage.setFormatSupported("jpg","txt");
+            findStorage.setFormatSupported("jpg, txt, kolbasa");
 
             //action
             session.update(findStorage);

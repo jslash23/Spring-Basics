@@ -1,6 +1,6 @@
-package com.lesson3.DI_CRUD.repository;
+package com.lesson3.DI_CRUD.dao;
 
-import com.lesson3.DI_CRUD.model.File;
+import com.lesson3.DI_CRUD.models.File;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -78,16 +78,16 @@ public class FileDAO implements DAO_interface {
     }
 
     @Override
-    public void update(Object object) {
-        File fileObj = (File)object;
+    public void update(long id) {
+       // File fileObj = (File)object;
         //File file = new File();
         try (Session session = createSessionFactory().openSession()) {
 
             Transaction transaction = session.getTransaction();
             transaction.begin();
 
-            File findItem = (File) findById(fileObj.getId());
-            findItem.setName("new_comics");
+            File findItem = (File) findById(id);
+            findItem.setName("new_comics_huyak");
             findItem.setSize(10);
             //action
             session.update(findItem);

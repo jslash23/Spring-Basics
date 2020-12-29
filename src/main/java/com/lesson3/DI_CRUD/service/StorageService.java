@@ -1,9 +1,6 @@
 package com.lesson3.DI_CRUD.service;
-
-import com.lesson3.DI_CRUD.model.File;
-import com.lesson3.DI_CRUD.repository.DAO_interface;
-import com.lesson3.DI_CRUD.model.Storage;
-import com.lesson3.DI_CRUD.repository.StorageDAO;
+import com.lesson3.DI_CRUD.dao.DAO_interface;
+import com.lesson3.DI_CRUD.models.Storage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -22,8 +19,8 @@ public class StorageService {
     }
 
     public void servSave(Storage storage) {
-        Object obj = (Object) storage;
-        dao_interface.save(obj);//
+        //Object obj = storage;
+        dao_interface.save(storage);//
     }
 
 

@@ -17,13 +17,13 @@
 
     <bean id="step" class="com.lesson2.Step"> </bean>
 
-    <bean id="file" class="com.lesson3.DI_CRUD.model.File">  </bean>
-    <bean id="storage" class="com.lesson3.DI_CRUD.model.Storage"> </bean>
-    <bean id="fileDao" class="com.lesson3.DI_CRUD.repository.FileDAO"> </bean>
-    <bean id="storageDao" class="com.lesson3.DI_CRUD.repository.StorageDAO"> </bean>
+    <bean id="file" class="com.lesson3.DI_CRUD.models.File">  </bean>
+    <bean id="storage" class="com.lesson3.DI_CRUD.models.Storage"> </bean>
+    <bean id="fileDao" class="com.lesson3.DI_CRUD.dao.FileDAO"> </bean>
+    <bean id="storageDao" class="com.lesson3.DI_CRUD.dao.StorageDAO"> </bean>
     <bean id="storageService" class="com.lesson3.DI_CRUD.service.StorageService"/>
     <bean id="fileService" class="com.lesson3.DI_CRUD.service.FileService"/>
-    <bean id="controllerFile" class="com.lesson3.DI_CRUD.controller.FileController"/>
-    <bean id="controllerStorage" class="com.lesson3.DI_CRUD.controller.StorageController"/>
+    <bean id="controllerFile" class="com.lesson3.DI_CRUD.controllers.FileController"/>
+    <bean id="controllerStorage" class="com.lesson3.DI_CRUD.controllers.StorageController"/>
 
 </beans>

@@ -1,18 +1,31 @@
-package com.lesson3.DI_CRUD.model;
+package com.lesson3.DI_CRUD.models;
 
 import javax.persistence.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Table(name = "STORAGE")
 public class Storage {
 
     private long id;
-    private String[] formatSupported;
+    private String formatSupported;
     private String storageCountry;
     private long storageSize;
+    private List<File>  files = new ArrayList<>();
 
-    private File[] files = new File[20];
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
+            targetEntity = Storage.class, mappedBy = "file")//another table(STORAGE_PR) can acces
+
+    public List<File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
 
 
     @Id
@@ -30,15 +43,15 @@ public class Storage {
 
     @Column(name = "FORMAT_SUPPORTED")
 
-    public String[] getFormatSupported() {
+    public String getFormatSupported() {
         return formatSupported;
     }
 
-    public void setFormatSupported(String[] formatSupported) {
+    public void setFormatSupported(String formatSupported) {
         this.formatSupported = formatSupported;
     }
 
-    @Column(name = "STARAGE_COUNTRY")
+    @Column(name = "STORAGE_COUNTRY")
 
     public String getStorageCountry() {
         return storageCountry;
@@ -59,24 +72,14 @@ public class Storage {
         this.storageSize = storageSize;
     }
 
-    public File[] getFiles() {
-        return files;
-    }
-
-    public void setFiles(File[] files) {
-        this.files = files;
-    }
-
     @Override
     public String toString() {
         return "Storage{" +
                 "id=" + id +
-                ", formatSupported=" + Arrays.toString(formatSupported) +
+                ", formatSupported='" + formatSupported + '\'' +
                 ", storageCountry='" + storageCountry + '\'' +
                 ", storageSize=" + storageSize +
+                ", files=" + files +
                 '}';
-    }
-
-    public void setFormatSupported(String jpg, String txt) {
     }
 }

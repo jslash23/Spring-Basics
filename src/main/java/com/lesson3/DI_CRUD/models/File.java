@@ -1,4 +1,4 @@
-package com.lesson3.DI_CRUD.model;
+package com.lesson3.DI_CRUD.models;
 import javax.persistence.*;
 
 @Entity

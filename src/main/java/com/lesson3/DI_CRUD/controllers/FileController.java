@@ -1,16 +1,17 @@
-package com.lesson3.DI_CRUD.controller;
+package com.lesson3.DI_CRUD.controllers;
 
-import com.lesson3.DI_CRUD.model.File;
+import com.lesson3.DI_CRUD.models.File;
 import com.lesson3.DI_CRUD.service.FileService;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+//@Controller
 @RequestMapping(value = "/test")
 
 public class FileController {
@@ -49,7 +50,7 @@ public class FileController {
 
     //делаем запрос req.getParameter("fileName") вызываем параметр  "fileName"
     // и по имени которое получили делаем обновление  объекта из БД
-    @RequestMapping(method = RequestMethod.PUT,value = "/putFile")
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateFile")
     protected void doPutFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         long idServ = Long.parseLong(req.getParameter("id"));
